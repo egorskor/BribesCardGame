@@ -1,7 +1,20 @@
 
-.test-button {
-    width: 5px;
-    height: 5px;
+.main-deck {
+    width: 50%;
+    height: 50%;
     color: green;
     cursor: pointer;
+    background-color: brown;
+    position: absolute;
+    left: 25%;
+    top: 15%;
+}
+
+.player-hand {
+    width: 50%;
+    height: 20%;
+    background-color: green;
+    position: absolute;
+    left: 25%;
+    top: 75%;
 }
