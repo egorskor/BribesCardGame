@@ -1,5 +1,6 @@
 package com.application.controller;
 
+import com.application.model.Card;
 import com.application.springboot.Application;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +17,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT,
 classes = {Application.class})
 @AutoConfigureMockMvc
-public class HelloControllerTest {
+public class GameControllerTest {
 
     @Autowired
     private MockMvc mvc;
@@ -24,6 +25,14 @@ public class HelloControllerTest {
     @Test
     public void getHello() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/getCards").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("suit")));
+    }
+
+    @Test
+    public void testTurns() throws Exception {
+        mvc.perform(MockMvcRequestBuilders.post("/initGame")
+                .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("suit")));
     }
