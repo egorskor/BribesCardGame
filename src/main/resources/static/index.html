@@ -5,16 +5,19 @@
     <title>The best card game ever</title>
     <script src="main.js"></script>
     <link rel="stylesheet" href="main.css">
-
 </head>
 <body>
-<div class="main-deck" onclick="buttonPressed()">Card deck</div></body>
-<div id="main-player" class="player-hand">Player hand</div>
-<div id="main_react"></div>
+<div id="main-deck" class="main-deck">Card deck</div>
+<div id="main-player" class="player-hand">Player hand
+</div>
 <!-- Load React. -->
 <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
 <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js" crossorigin></script>
+
 <!-- Load our React component. -->
-<script src="main_react.js"></script>
+<script src="main_deck.js" type="text/babel"></script>
+<script src="main-player.js" type="text/babel"></script>
+</body>
 </html>

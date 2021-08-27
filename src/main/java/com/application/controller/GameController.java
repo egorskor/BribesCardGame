@@ -47,4 +47,9 @@ public class GameController {
         Card c = new Card(Suit.CROSS, Integer.parseInt(card));
         return gameStateService.makeTurn(c, playerId);
     }
+
+    @PostMapping("/makeTurn")
+    public GameState makeTurn(@RequestBody Card card, @RequestParam String playerId){
+        return gameStateService.makeTurn(card, playerId);
+    }
 }
