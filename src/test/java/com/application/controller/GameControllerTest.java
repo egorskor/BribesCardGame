@@ -31,9 +31,10 @@ public class GameControllerTest {
 
     @Test
     public void testTurns() throws Exception {
+        //TODO
         mvc.perform(MockMvcRequestBuilders.post("/initGame")
                 .accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("suit")));
+                .andExpect(content().string(containsString("Game started!")));
     }
 }
