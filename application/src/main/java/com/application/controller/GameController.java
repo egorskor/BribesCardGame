@@ -6,8 +6,16 @@ import com.application.model.enums.Suit;
 import com.application.model.exceptions.RuleViolation;
 import com.application.service.DeckService;
 import com.application.service.GameStateService;
+import com.application.multimodule.service.FrontendModuleService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.messaging.handler.annotation.MessageMapping;
+import org.springframework.messaging.handler.annotation.SendTo;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -20,6 +28,9 @@ public class GameController {
 
     @Autowired
     GameStateService gameStateService;
+
+    @Autowired
+    private FrontendModuleService frontendModuleService;
 
     @GetMapping("/initGame")
     public String initGame(){
@@ -50,6 +61,21 @@ public class GameController {
 
     @PostMapping("/makeTurn")
     public GameState makeTurn(@RequestBody Card card, @RequestParam String playerId){
-        return gameStateService.makeTurn(card, playerId);
+        GameState gameState = gameStateService.makeTurn(card, playerId);
+        getGameState(gameState);
+        return gameState;
     }
+
+    //TODO: does not work for now. Still need to fix it
+    @MessageMapping("/getGameState")
+    @SendTo("/getGameState")
+    public GameState getGameState(GameState message)  {
+        return message;
+    }
+
+    @GetMapping("/testFrontendService")
+    public String makeTurn(){
+        return frontendModuleService.message();
+    }
+
 }

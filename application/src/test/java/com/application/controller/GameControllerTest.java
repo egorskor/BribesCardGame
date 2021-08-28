@@ -1,6 +1,5 @@
 package com.application.controller;
 
-import com.application.model.Card;
 import com.application.springboot.Application;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

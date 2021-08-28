@@ -9,6 +9,7 @@ import java.util.*;
 
 @Service
 public class GameStateService {
+//TODO: rename to roundProcessingService?
 
     GameState gameState;
 
@@ -26,32 +27,32 @@ public class GameStateService {
 
         int indexOfPlayer = gameState.getPlayerIds().indexOf(playerId);
         if (indexOfPlayer == gameState.getPlayerIds().size() - 1) {
-            finishRound();
+            finishBribe();
         }
 
         return gameState;
     }
 
-    public void finishRound() {
-        calculateRoundResults();
+    public void finishBribe() {
+        calculateBribeResults();
 
         gameState.getPlayerIds().add(gameState.getPlayerIds().remove(0));
 
         gameState.getCurrentTurn().clear();
 
-        int currentRound = gameState.getCurrentRound();
-        if (currentRound != gameState.getRounds()) {
-            gameState.setCurrentRound(currentRound + 1);
+        int currentBribeNumber = gameState.getCurrentBribeNumber();
+        if (currentBribeNumber != gameState.getAmountOfCards()) {
+            gameState.setCurrentBribeNumber(currentBribeNumber + 1);
         } else {
-            finishGame();
+            finishRound();
         }
     }
 
-    private void finishGame() {
+    private void finishRound() {
 
     }
 
-    private void calculateRoundResults() {
+    private void calculateBribeResults() {
         //TODO: add real winner calculation logic
         String player = gameState.getCurrentTurn().keySet().stream().findFirst().orElse(null);
         Bribe bribe = new Bribe(new ArrayList<>(gameState.getCurrentTurn().values()), player);
