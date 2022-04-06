@@ -1,5 +1,7 @@
 package com.application.controller;
 
+import com.application.model.Game;
+import com.application.service.GameService;
 import com.application.viewmodel.Card;
 import com.application.viewmodel.GameState;
 import com.application.viewmodel.enums.Suit;
@@ -28,6 +30,9 @@ public class GameController {
 
     @Autowired
     GameStateService gameStateService;
+
+    @Autowired
+    GameService gameService;
 
     @Autowired
     private FrontendModuleService frontendModuleService;
@@ -76,6 +81,11 @@ public class GameController {
     @GetMapping("/testFrontendService")
     public String makeTurn(){
         return frontendModuleService.message();
+    }
+
+    @GetMapping("/storedGames")
+    public List<Game> /*TODO: return Game viw model ofc!*/ getStoredGames(){
+        return gameService.findAll();
     }
 
 }

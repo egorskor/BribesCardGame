@@ -1,6 +1,6 @@
 package com.application.controller;
 
-import com.application.springboot.Application;
+import com.application.Application;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
