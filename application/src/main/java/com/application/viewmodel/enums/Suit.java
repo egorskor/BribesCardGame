@@ -1,4 +1,4 @@
-package com.application.model.enums;
+package com.application.viewmodel.enums;
 
 public enum Suit {
     HEART,

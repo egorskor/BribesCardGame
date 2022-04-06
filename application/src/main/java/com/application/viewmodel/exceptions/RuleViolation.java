@@ -1,4 +1,4 @@
-package com.application.model.exceptions;
+package com.application.viewmodel.exceptions;
 
 public class RuleViolation extends RuntimeException{
 

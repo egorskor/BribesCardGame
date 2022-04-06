@@ -1,9 +1,9 @@
 package com.application.controller;
 
-import com.application.model.Card;
-import com.application.model.GameState;
-import com.application.model.enums.Suit;
-import com.application.model.exceptions.RuleViolation;
+import com.application.viewmodel.Card;
+import com.application.viewmodel.GameState;
+import com.application.viewmodel.enums.Suit;
+import com.application.viewmodel.exceptions.RuleViolation;
 import com.application.service.DeckService;
 import com.application.service.GameStateService;
 import com.application.multimodule.service.FrontendModuleService;

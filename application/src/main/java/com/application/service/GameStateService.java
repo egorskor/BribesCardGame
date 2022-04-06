@@ -1,8 +1,8 @@
 package com.application.service;
 
-import com.application.model.Bribe;
-import com.application.model.Card;
-import com.application.model.GameState;
+import com.application.viewmodel.Bribe;
+import com.application.viewmodel.Card;
+import com.application.viewmodel.GameState;
 import org.springframework.stereotype.Service;
 
 import java.util.*;

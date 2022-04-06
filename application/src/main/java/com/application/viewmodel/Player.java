@@ -1,4 +1,4 @@
-package com.application.model;
+package com.application.viewmodel;
 
 public class Player {
     String id;

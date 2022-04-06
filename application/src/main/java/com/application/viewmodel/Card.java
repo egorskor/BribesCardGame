@@ -1,6 +1,6 @@
-package com.application.model;
+package com.application.viewmodel;
 
-import com.application.model.enums.Suit;
+import com.application.viewmodel.enums.Suit;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -1,8 +1,8 @@
 package com.application.service;
 
-import com.application.model.Card;
-import com.application.model.enums.Suit;
-import com.application.model.exceptions.RuleViolation;
+import com.application.viewmodel.Card;
+import com.application.viewmodel.enums.Suit;
+import com.application.viewmodel.exceptions.RuleViolation;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
