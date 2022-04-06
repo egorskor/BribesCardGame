@@ -18,6 +18,6 @@ async function makeTurn() {
             },
             body: JSON.stringify(request)
         });
-    let text = await response.text();
-    alert(text);
+    let text = await response.json();
+    alert(text.amountOfCards);
 }

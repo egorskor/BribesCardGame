@@ -33,11 +33,11 @@ public class GameController {
     private FrontendModuleService frontendModuleService;
 
     @GetMapping("/initGame")
-    public String initGame(){
+    public String initGame() {
         try {
             gameStateService.initGame(2, 1);
             return "Game started!";
-        } catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace(System.out);
             return "Game start failed " + e.getMessage();
         }
@@ -47,20 +47,20 @@ public class GameController {
     public List<Card> getCards(@RequestParam(required = false) String amountOfCards) {
         try {
             return deckService.drawDeal();
-        } catch (RuleViolation e){
+        } catch (RuleViolation e) {
             return Collections.emptyList();
         }
     }
 
     //TODO: Cant work with postman offline. Change it to POST back
     @GetMapping("/makeTurn")
-    public GameState makeTurn(@RequestParam String card, @RequestParam String playerId){
+    public GameState makeTurn(@RequestParam String card, @RequestParam String playerId) {
         Card c = new Card(Suit.CROSS, Integer.parseInt(card));
         return gameStateService.makeTurn(c, playerId);
     }
 
     @PostMapping("/makeTurn")
-    public GameState makeTurn(@RequestBody Card card, @RequestParam String playerId){
+    public GameState makeTurn(@RequestBody Card card, @RequestParam String playerId) {
         GameState gameState = gameStateService.makeTurn(card, playerId);
         getGameState(gameState);
         return gameState;
@@ -69,12 +69,12 @@ public class GameController {
     //TODO: does not work for now. Still need to fix it
     @MessageMapping("/getGameState")
     @SendTo("/getGameState")
-    public GameState getGameState(GameState message)  {
+    public GameState getGameState(GameState message) {
         return message;
     }
 
     @GetMapping("/testFrontendService")
-    public String makeTurn(){
+    public String makeTurn() {
         return frontendModuleService.message();
     }
 
